@@ -1,11 +1,11 @@
 #---cluster/variables.tf---
 
 variable "public_subnets" {
-  default = ["subnet-1", "subnet-2", "subnet-3"]  # Replace with the actual subnet IDs
+    
 }
 
 variable "vpc_id" {
-  default = "vpc-1234567890"  # Replace with the actual VPC ID
+  
 }
 
 variable "endpoint_private_access" {
