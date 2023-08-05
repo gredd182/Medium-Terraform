@@ -60,7 +60,6 @@ resource "aws_eks_node_group" "krypt0-week22" {
 resource "aws_security_group" "krypt0-week22-node-group" {
   name        = "http"
   description = "Allow inbound HTTP traffic"
-  name_prefix = "krypt0-week22-node-group"
   vpc_id      = var.vpc_id
   ingress {
     description = "Allow incoming HTTP traffic"
