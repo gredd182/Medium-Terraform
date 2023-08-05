@@ -7,6 +7,8 @@ variable "public_subnets" {
 variable "vpc_id" {
   
 }
+variable "kms_arn" {
+}
 
 variable "endpoint_private_access" {
   default = true  # Replace with your desired value (true or false)
