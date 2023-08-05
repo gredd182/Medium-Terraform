@@ -50,13 +50,10 @@ resource "aws_eks_node_group" "krypt0-week22" {
 
 #tfsec:ignore:aws-vpc-no-public-ingress-sgr[from_port=443]
 resource "aws_security_group" "krypt0-week22-node-group" {
+  name        = "http"
+  description = "Allow inbound HTTP traffic"
   name_prefix = "krypt0-week22-node-group"
   vpc_id      = var.vpc_id
-# Ignore specific error for this security group
-  ignore = [
-    "security-group-default-rule",
-  ]
-
   ingress {
     description = "Allow incoming HTTP traffic"
     from_port = 443
