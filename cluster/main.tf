@@ -17,6 +17,8 @@ enabled_cluster_log_types = ["api", "authenticator", "audit", "scheduler", "cont
   role_arn = aws_iam_role.krypt0-week22.arn
 
   vpc_config {
+    endpoint_public_access = true
+    public_access_cidrs = ["10.2.0.0/8"]
     subnet_ids              = var.public_subnets
     endpoint_public_access  = var.endpoint_public_access
     endpoint_private_access = var.endpoint_private_access
