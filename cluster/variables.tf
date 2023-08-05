@@ -8,7 +8,10 @@ variable "vpc_id" {
   
 }
 variable "kms_arn" {
+  type        = string
+  description = "The ARN of the KMS key to be used by the EKS cluster."
 }
+
 
 variable "endpoint_private_access" {
   default = true  # Replace with your desired value (true or false)
