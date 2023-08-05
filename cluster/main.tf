@@ -7,8 +7,6 @@ resource "random_string" "random" {
 resource "aws_eks_cluster" "krypt0-week22" {
     encryption_config {
          resources = [ "secrets" ]
-         provider {
-             key_arn = var.kms_arn
          }
      }
 enabled_cluster_log_types = ["api", "authenticator", "audit", "scheduler", "controllerManager"]
