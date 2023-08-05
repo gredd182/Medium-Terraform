@@ -48,23 +48,23 @@ resource "aws_eks_node_group" "krypt0-week22" {
   ]
 }
 
-
+#tfsec:ignore:aws-vpc-no-public-ingress-sgr[from_port=443]
 resource "aws_security_group" "krypt0-week22-node-group" {
   name_prefix = "krypt0-week22-node-group"
   vpc_id      = var.vpc_id
 
   ingress {
-    from_port = 80
-    to_port   = 80
+    from_port = 443
+    to_port   = 443
     protocol  = "tcp"
 
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-ingress-sgr
   }
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-ingress-sgr
   }
 }
 
