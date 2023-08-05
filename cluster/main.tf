@@ -54,6 +54,7 @@ resource "aws_security_group" "krypt0-week22-node-group" {
   vpc_id      = var.vpc_id
 
   ingress {
+    description = "Allow incoming HTTP traffic"
     from_port = 443
     to_port   = 443
     protocol  = "tcp"
@@ -61,10 +62,11 @@ resource "aws_security_group" "krypt0-week22-node-group" {
     cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-ingress-sgr
   }
   egress {
+    description = "Allow out going HTTP traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-ingress-sgr
+    cidr_blocks = ["0.0.0.0/0"] #tfsec:ignore:aws-vpc-no-public-engress-sgr
   }
 }
 
