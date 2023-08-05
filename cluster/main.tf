@@ -6,6 +6,7 @@ resource "random_string" "random" {
 }
 
 resource "aws_eks_cluster" "krypt0-week22" {
+enabled_cluster_log_types = ["api", "authenticator", "audit", "scheduler", "controllerManager"]
   name     = "krypt0-week22-${random_string.random.result}"
   role_arn = aws_iam_role.krypt0-week22.arn
 
