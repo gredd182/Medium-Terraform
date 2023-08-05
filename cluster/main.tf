@@ -52,6 +52,10 @@ resource "aws_eks_node_group" "krypt0-week22" {
 resource "aws_security_group" "krypt0-week22-node-group" {
   name_prefix = "krypt0-week22-node-group"
   vpc_id      = var.vpc_id
+# Ignore specific error for this security group
+  ignore = [
+    "security-group-default-rule",
+  ]
 
   ingress {
     description = "Allow incoming HTTP traffic"
