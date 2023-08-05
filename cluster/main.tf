@@ -11,10 +11,11 @@ resource "aws_eks_cluster" "krypt0-week22" {
      role_arn = aws_iam_role.krypt0-week22.arn
 
   vpc_config {
-    endpoint_public_access = false
+     
     public_access_cidrs = ["10.0.0.0/8"]
     subnet_ids              = var.public_subnets
     endpoint_private_access = var.endpoint_private_access
+    endpoint_public_access  = var.endpoint_public_access
     security_group_ids      = [aws_security_group.krypt0-week22-node-group.id]
   }
 
