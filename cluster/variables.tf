@@ -12,7 +12,7 @@ variable "endpoint_private_access" {
 }
 
 variable "endpoint_public_access" {
-  default = false  # Replace with your desired value (true or false)
+  default = true  # Replace with your desired value (true or false)
 }
 
 variable "instance_types" {
